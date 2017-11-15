@@ -12,4 +12,4 @@ Our idea is to use a biometric concept to facilitate the attendance system using
 
 
 ## Technology
-We are planning to use Ionic 3 for the front end and couchDB for the back end database, as well as some graphical database (e.g. Neo4j) to generate statistical information on admins request.
+We are planning to use Android for the front end and couchDB for the back end database, as well as some graphical database (e.g. Neo4j) to generate statistical information on admins request.
