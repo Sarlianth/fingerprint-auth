@@ -12,4 +12,22 @@ Our idea is to use a biometric concept to facilitate the attendance system using
 
 
 ## Technology
-We are planning to use Android for the front end and couchDB for the back end database, as well as some graphical database (e.g. Neo4j) to generate statistical information on admins request.
+
+### [Android Studio(Java)](https://developer.android.com/studio/index.html)
+We have decided to use android studio to develop our app in Java. Andorid studio is the official integrated development envieroment for googles android operating system.
+
+
+### [Couch DB](http://couchdb.apache.org/)
+CouchDB is an open source database made by apache. CouchDB is our online database where all our users and data is synched together. If the user is not connected to the internet then they can still use the app and they will be using PouchDB instead.
+
+### [Pouch DB](https://pouchdb.com/)
+PouchDB is escpecially developed for Couch DB in order to be used offline and be synchronized with an online database which is what we are going to use pouchDB for so if the user does not have an internet connection can still use the application and when there is a connection then they can synch data with the online database.
+
+### [Neo4j](https://neo4j.com/)
+We want to use Neo4j for statistics, since Neo4j is a graphical database we want to display statistics and data for users if they request it.
+
+
+
+
+
+
