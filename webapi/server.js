@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 
 //connect to mongoDB
-mongoose.connect('mongodb://sarlianth:project123!@ds245238.mlab.com:45238/fingerprint_auth');
+mongoose.connect('mongodb://admin:pass@ds245238.mlab.com:45238/fingerprint_auth');
 
 //express
 var app = express();
