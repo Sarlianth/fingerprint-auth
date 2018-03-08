@@ -1,5 +1,5 @@
 {
-  "name": "webapi",
+  "name": "fpp",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,7 +11,7 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
-    "mongoose": "^5.0.7",
+    "mongoose": "^5.0.9",
     "node-restful": "^0.2.6"
   }
 }

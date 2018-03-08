@@ -1,10 +1,11 @@
 //dependencies
+
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 
-//connect to mongoDB
-mongoose.connect('mongodb://admin:pass@ds245238.mlab.com:45238/fingerprint_auth');
+//Connect to mongoDB :
+mongoose.connect('mongodb://yourdbus:matreka7890@ds261078.mlab.com:61078/mydb');
 
 //express
 var app = express();
@@ -14,6 +15,6 @@ app.use(bodyParser.json());
 //routes
 app.use('/api', require('./routes/api'));
 
-//start on xx port
+//start Server:
 app.listen(1000);
-console.log('Server running on port 1000');
+console.log('Server is running on port 1000');
