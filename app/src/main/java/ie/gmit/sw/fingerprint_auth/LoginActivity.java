@@ -3,6 +3,7 @@ package ie.gmit.sw.fingerprint_auth;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
@@ -30,6 +31,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -95,7 +99,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
-
+        // Show the results in the TextView
         myResults = (TextView) findViewById(R.id.tv_results);
     }
 
@@ -241,6 +245,48 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             // and hide the relevant UI components.
             mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
             mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
+        }
+    }
+
+    //
+    class GetDataTask extends AsyncTask<String, Void, String>{
+
+        ProgressDialog progressDialog;
+
+        @Override
+        protected void onPreExecute() {
+
+            super.onPreExecute();
+            progressDialog = new ProgressDialog(LoginActivity.this);
+            progressDialog.setMessage("Lading data...");
+            progressDialog.show();
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            try{
+                // Initialize and config request, then connect to server
+                URL url = new URL(strings[0]);
+                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+                // Set read & connection timeout in milliseconds
+                urlConnection.setReadTimeout(10000);
+                urlConnection.setConnectTimeout(10000);
+                urlConnection.setRequestMethod("GET");
+                // Set header
+                urlConnection.setRequestProperty("Content-Type", "application/jason");
+                urlConnection.connect();
+            }
+
+            catch(IOException ex){
+                return "Network Error!";
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String results) {
+            super.onPostExecute(results);
         }
     }
 
