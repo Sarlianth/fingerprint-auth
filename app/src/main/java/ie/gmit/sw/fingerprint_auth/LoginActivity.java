@@ -31,6 +31,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -257,6 +260,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     //
     class getDataTask extends AsyncTask<String, Void, String>{
+        // Local variable
         ProgressDialog progressDialog;
 
         @Override
@@ -338,6 +342,53 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             return myResult.toString();
         }// End of getData
     }// End of GetDataTask
+
+    class postDataTask extends AsyncTask<String, Void, String>{
+        // Local variable
+        ProgressDialog progressDialog;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressDialog = new ProgressDialog(LoginActivity.this);
+            progressDialog.setMessage("Inserting data...");
+            progressDialog.show();
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            // Try to execute/ do work
+            try{
+                // Return result string
+                return postData(params[0]);
+            }// End of try
+
+            // Catch the exceptions
+            catch(IOException ex){
+                // Return informative error message
+                return "Network Error!";
+            }// End of catch
+            catch(JSONException ex){
+                return "Invalid data!";
+            }// End of catch
+        }// End of doInBackground
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+        }// End of onPostExecute
+
+        private String postData(String urlPath) throws IOException, JSONException{
+            // Creation of data to send to the server
+            JSONObject dataToSend = new JSONObject();
+            dataToSend.put("fbname", "Testing SEND");
+            dataToSend.put("content", "Sending JSON object");
+            dataToSend.put("likes", 222);
+            dataToSend.put("comments", 2);
+
+            return null;
+        }// End of postData
+    }// End of postDataTask
 
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
