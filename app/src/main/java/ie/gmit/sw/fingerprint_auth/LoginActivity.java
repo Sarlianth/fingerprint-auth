@@ -31,7 +31,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
@@ -66,7 +69,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
-    private TextView myResults;
+    private TextView myResult;
 
 
     @Override
@@ -99,9 +102,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
-        // Show the results in the TextView
-        myResults = (TextView) findViewById(R.id.tv_results);
-    }
+        // Show the result in the TextView
+        myResult = (TextView) findViewById(R.id.tv_results);
+
+        // Make GET request
+        // The "http://172.22.205.209" IP Address should be changed accordingly to the server public IP Address
+        // The current IP address is of a local machine where the test is carried out
+        new getDataTask().execute("http://172.22.205.209:1000/api/status");
+    }// End of onCreate
 
     private void populateAutoComplete() {
         if (!mayRequestContacts()) {
@@ -198,7 +206,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask.execute((Void) null);
             Intent i = new Intent(this, PostActivity.class);
             startActivity(i);
-
         }
     }
 
@@ -249,24 +256,54 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     }
 
     //
-    class GetDataTask extends AsyncTask<String, Void, String>{
-
+    class getDataTask extends AsyncTask<String, Void, String>{
         ProgressDialog progressDialog;
 
         @Override
         protected void onPreExecute() {
-
             super.onPreExecute();
             progressDialog = new ProgressDialog(LoginActivity.this);
             progressDialog.setMessage("Lading data...");
             progressDialog.show();
-        }
+        }// End of onPreExecute
 
         @Override
-        protected String doInBackground(String... strings) {
+        protected String doInBackground(String... params) {
+            // Try to execute/ do work
+            try{
+                // Return result string
+                return getData(params[0]);
+            }// End of try
+
+            // Catch the exception
+            catch(IOException ex){
+                // Return informative error message
+                return "Network Error!";
+            }// End of catch
+        }// End of doInBackground
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+
+            // Set data response to TextView
+            myResult.setText(result);
+
+            // Cancel progress dialog
+            if(progressDialog != null){
+                progressDialog.dismiss();
+            }// End of if
+        }// End of onPostExecute
+
+        private String getData(String urlPath) throws IOException{
+            // Declaration of result string builder
+            StringBuilder result = new StringBuilder();
+            BufferedReader br = null;
+
+            // Try to execute/ do work
             try{
                 // Initialize and config request, then connect to server
-                URL url = new URL(strings[0]);
+                URL url = new URL(urlPath);
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
                 // Set read & connection timeout in milliseconds
                 urlConnection.setReadTimeout(10000);
@@ -275,20 +312,32 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 // Set header
                 urlConnection.setRequestProperty("Content-Type", "application/jason");
                 urlConnection.connect();
-            }
 
-            catch(IOException ex){
-                return "Network Error!";
-            }
+                // Read data response from server
+                InputStream inputStream = urlConnection.getInputStream();
+                br = new BufferedReader(new InputStreamReader(inputStream));
+                String line;
 
-            return null;
-        }
+                // While input stream is not empty
+                while((line = br.readLine()) != null){
+                    // Append the result string
+                    result.append(line).append("\n");
+                }// End of while
+            }// End of try
 
-        @Override
-        protected void onPostExecute(String results) {
-            super.onPostExecute(results);
-        }
-    }
+            // Finally when work is done
+            finally{
+                // And buffered reader is not empty
+                if(br != null){
+                    // Close the resource stream
+                    br.close();
+                }// End of if
+            }// End of finally
+
+            // Return result string
+            return myResult.toString();
+        }// End of getData
+    }// End of GetDataTask
 
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
