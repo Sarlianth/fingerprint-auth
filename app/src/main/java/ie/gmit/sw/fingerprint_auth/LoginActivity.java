@@ -35,9 +35,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
@@ -111,7 +114,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         // Make GET request
         // The "http://172.22.205.209" IP Address should be changed accordingly to the server public IP Address
         // The current IP address is of a local machine where the test is carried out
-        new getDataTask().execute("http://172.22.205.209:1000/api/status");
+        //new getDataTask().execute("http://172.22.205.209:1000/api/status");
+
+        // Make POST request
+        new postDataTask().execute("http://172.22.205.209:1000/api/status");
+
     }// End of onCreate
 
     private void populateAutoComplete() {
@@ -377,31 +384,82 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
+
+            // Set data response to TextView
+            myResult.setText(result);
+
+            // Cancel progress dialog
+            if(progressDialog != null){
+                progressDialog.dismiss();
+            }// End of if
         }// End of onPostExecute
 
         private String postData(String urlPath) throws IOException, JSONException{
-            // Creation of data to send to the server
-            JSONObject dataToSend = new JSONObject();
-            dataToSend.put("fbname", "Testing SEND");
-            dataToSend.put("content", "Sending JSON object");
-            dataToSend.put("likes", 222);
-            dataToSend.put("comments", 2);
+            // Declaration of result string builder
+            StringBuilder result = new StringBuilder();
+            BufferedWriter bw = null;
+            BufferedReader br = null;
 
-            // Initialize and config request
-            URL url = new URL(urlPath);
-            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-            // Set read & connection timeout in milliseconds
-            urlConnection.setReadTimeout(10000);
-            urlConnection.setConnectTimeout(10000);
-            urlConnection.setRequestMethod("POST");
-            // Enable output (Body data)
-            urlConnection.setDoOutput(true);
-            // Set header
-            urlConnection.setRequestProperty("Content-Type", "application/jason");
-            // Connect to the server
-            urlConnection.connect();
+            // Try to execute/ do work
+            try {
 
-            return null;
+                // Creation of data to send to the server
+                JSONObject dataToSend = new JSONObject();
+                dataToSend.put("fbname", "Testing SEND");
+                dataToSend.put("content", "Sending JSON object");
+                dataToSend.put("likes", 222);
+                dataToSend.put("comments", 2);
+
+                // Initialize and config request
+                URL url = new URL(urlPath);
+                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+                // Set read & connection timeout in milliseconds
+                urlConnection.setReadTimeout(10000);
+                urlConnection.setConnectTimeout(10000);
+                urlConnection.setRequestMethod("POST");
+                // Enable output (Body data)
+                urlConnection.setDoOutput(true);
+                // Set header
+                urlConnection.setRequestProperty("Content-Type", "application/jason");
+                // Connect to the server
+                urlConnection.connect();
+
+                // Write data onto the server
+                OutputStream outputStream = urlConnection.getOutputStream();
+                bw = new BufferedWriter(new OutputStreamWriter(outputStream));
+                // Write data into a string
+                bw.write(dataToSend.toString());
+                // Flush the output stream
+                bw.flush();
+
+                // Read data response from the server
+                InputStream inputStream = urlConnection.getInputStream();
+                br = new BufferedReader(new InputStreamReader(inputStream));
+                String line;
+
+                // While input stream is not empty
+                while ((line = br.readLine()) != null) {
+                    // Append the result string
+                    result.append(line).append("\n");
+                }// End of while
+            }// End of try
+
+            // Finally when work is done
+            finally{
+                // And buffered readers are not empty
+                if(bw != null){
+                    // Close the resource stream
+                    bw.close();
+                }// End of if
+
+                if(br != null){
+                    // Close the resource stream
+                    br.close();
+                }// End of if
+            }// End of finally
+
+            // Return result string
+            return result.toString();
         }// End of postData
     }// End of postDataTask
 
