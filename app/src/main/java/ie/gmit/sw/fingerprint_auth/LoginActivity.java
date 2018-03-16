@@ -306,7 +306,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             // Try to execute/ do work
             try{
-                // Initialize and config request, then connect to server
+                // Initialize and config request
                 URL url = new URL(urlPath);
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
                 // Set read & connection timeout in milliseconds
@@ -315,6 +315,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 urlConnection.setRequestMethod("GET");
                 // Set header
                 urlConnection.setRequestProperty("Content-Type", "application/jason");
+                // Connect to the server
                 urlConnection.connect();
 
                 // Read data response from server
@@ -385,6 +386,20 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             dataToSend.put("content", "Sending JSON object");
             dataToSend.put("likes", 222);
             dataToSend.put("comments", 2);
+
+            // Initialize and config request
+            URL url = new URL(urlPath);
+            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+            // Set read & connection timeout in milliseconds
+            urlConnection.setReadTimeout(10000);
+            urlConnection.setConnectTimeout(10000);
+            urlConnection.setRequestMethod("POST");
+            // Enable output (Body data)
+            urlConnection.setDoOutput(true);
+            // Set header
+            urlConnection.setRequestProperty("Content-Type", "application/jason");
+            // Connect to the server
+            urlConnection.connect();
 
             return null;
         }// End of postData
