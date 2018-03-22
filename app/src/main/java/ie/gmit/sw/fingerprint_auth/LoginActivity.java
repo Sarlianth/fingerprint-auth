@@ -117,8 +117,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         //new getDataTask().execute("http://172.22.205.209:1000/api/status");
 
         // Make POST request
-        new postDataTask().execute("http://172.22.205.209:1000/api/status");
+        //new postDataTask().execute("http://172.22.205.209:1000/api/status");
 
+        // Make PUT request
+        new putDataTask().execute("http://172.22.205.209:1000/api/status/5aa8542a571f4b0ccc1c1e0d");
     }// End of onCreate
 
     private void populateAutoComplete() {
@@ -361,7 +363,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             progressDialog = new ProgressDialog(LoginActivity.this);
             progressDialog.setMessage("Inserting data...");
             progressDialog.show();
-        }
+        }// End of onPreExecute
 
         @Override
         protected String doInBackground(String... params) {
@@ -402,7 +404,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             // Try to execute/ do work
             try {
-
                 // Creation of data to send to the server
                 JSONObject dataToSend = new JSONObject();
                 dataToSend.put("fbname", "Testing SEND");
@@ -462,6 +463,109 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             return result.toString();
         }// End of postData
     }// End of postDataTask
+
+    class putDataTask extends AsyncTask<String, Void, String>{
+        // Local variable
+        ProgressDialog progressDialog;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressDialog = new ProgressDialog(LoginActivity.this);
+            progressDialog.setMessage("Updating data...");
+            progressDialog.show();
+        }// End of onPreExecute
+
+        @Override
+        protected String doInBackground(String... params) {
+            // Try to execute/ do work
+            try{
+                // Return result string
+                return putData(params[0]);
+            }// End of try
+
+            // Catch the exceptions
+            catch(IOException ex){
+                // Return informative error message
+                return "Network Error!";
+            }// End of catch
+            catch(JSONException ex){
+                return "Invalid data!";
+            }// End of catch
+        }// End of doInBackground
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+
+            // Set data response to TextView
+            myResult.setText(result);
+
+            // Cancel progress dialog
+            if(progressDialog != null){
+                progressDialog.dismiss();
+            }// End of if
+        }// End of onPostExecute
+
+        private String putData(String urlPath) throws IOException, JSONException{
+            // Declaration of result string builder
+            String result = null;
+            BufferedWriter bw = null;
+
+            // Try to execute/ do work
+            try{
+                // Create data to update
+                JSONObject dataToSend = new JSONObject();
+                dataToSend.put("fbname", "Testing PUT");
+                dataToSend.put("content", "Updating content");
+                dataToSend.put("likes", 333);
+                dataToSend.put("comments", 3);
+
+                // Initialize and config request
+                URL url = new URL(urlPath);
+                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+                // Set read & connection timeout in milliseconds
+                urlConnection.setReadTimeout(10000);
+                urlConnection.setConnectTimeout(10000);
+                urlConnection.setRequestMethod("PUT");
+                // Enable output (Body data)
+                urlConnection.setDoOutput(true);
+                // Set header
+                urlConnection.setRequestProperty("Content-Type", "application/jason");
+                // Connect to the server
+                urlConnection.connect();
+
+                // Write data onto the server
+                OutputStream outputStream = urlConnection.getOutputStream();
+                bw = new BufferedWriter(new OutputStreamWriter(outputStream));
+                // Write data into a string
+                bw.write(dataToSend.toString());
+                // Flush the output stream
+                bw.flush();
+
+                // When connection successful
+                if(urlConnection.getResponseCode() == 200){
+                    // Return successful message
+                    return "Update Successful!";
+                }// End of if
+
+                // When connection unsuccessful
+                else{
+                    // Return unsuccessful message
+                    return "Update Unsuccessful!";
+                }// End of else
+            }// End of try
+
+            // Finally when work is done
+            finally{
+                // And buffered readers are not empty
+                if(bw != null){
+                    // Close the resource stream
+                    bw.close();
+                }// End of if
+            }// End of finally
+        }// End of putData
+    }// End of putDataTask
 
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
