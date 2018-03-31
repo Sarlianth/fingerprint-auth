@@ -12,6 +12,17 @@ log.txt
 .vscode/
 npm-debug.log*
 
+*.iml
+.gradle
+/local.properties
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+
 .idea/
 .sourcemaps/
 .sass-cache/
