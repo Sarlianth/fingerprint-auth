@@ -10,13 +10,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -54,7 +52,10 @@ public class MainActivity extends AppCompatActivity {
         //new getDataTask().execute("http://192.168.8.103:1000/api/status");
 
         // POST request
-        new putDataTask().execute("http://192.168.8.103:1000/api/status");
+        //new postDataTask().execute("http://192.168.8.103:1000/api/status");
+
+        // PUT request
+        new putDataTask().execute("http://192.168.8.103:1000/api/status/5abfc61275fd281c10c6a313");
     }
 
     @Override
@@ -148,8 +149,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
-    class putDataTask extends AsyncTask<String, Void, String> {
+    class postDataTask extends AsyncTask<String, Void, String> {
 
         ProgressDialog progressDialog;
 
@@ -233,6 +233,86 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
             return result.toString();
+        }
+    }
+
+    class putDataTask extends AsyncTask<String, Void, String> {
+
+        ProgressDialog progressDialog;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            progressDialog = new ProgressDialog(MainActivity.this);
+            progressDialog.setMessage("Updating data");
+            progressDialog.show();
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            try{
+                return putData(params[0]);
+            }catch(IOException ex){
+                return "Network Error";
+            }catch(JSONException ex){
+                return "Data error";
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+
+            mResult.setText(result);
+
+            if(progressDialog != null){
+                progressDialog.dismiss();
+            }
+        }
+
+        private String putData(String urlPath) throws IOException, JSONException {
+
+            String result = null;
+            BufferedWriter bufferedWriter = null;
+
+            try{
+
+                //Create data to send to server
+                JSONObject dataToSend = new JSONObject();
+                dataToSend.put("fbname", "Mariancki CHANGED");
+                dataToSend.put("content", "Please work.. CHANGE!!");
+                dataToSend.put("likes", 12);
+                dataToSend.put("comments", 43);
+
+                //Initialize and config request
+                URL url = new URL(urlPath);
+                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+                urlConnection.setReadTimeout(10000); // in milliseconds
+                urlConnection.setConnectTimeout(10000); // in milliseconds
+                urlConnection.setRequestMethod("PUT");
+                urlConnection.setDoOutput(true); //enable output
+                urlConnection.setRequestProperty("Content-Type", "application/json"); // header
+                urlConnection.connect();
+
+                //Data to server
+                OutputStream outputStream = urlConnection.getOutputStream();
+                bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream));
+                bufferedWriter.write(dataToSend.toString());
+                bufferedWriter.flush();
+
+                //Check if update is successful
+                if(urlConnection.getResponseCode() == 200){
+                    return "Update successfully";
+                }
+                else{
+                    return "Update failed";
+                }
+            }finally{
+                if(bufferedWriter != null){
+                    bufferedWriter.close();
+                }
+            }
         }
     }
 }
