@@ -55,7 +55,10 @@ public class MainActivity extends AppCompatActivity {
         //new postDataTask().execute("http://192.168.8.103:1000/api/status");
 
         // PUT request
-        new putDataTask().execute("http://192.168.8.103:1000/api/status/5abfc61275fd281c10c6a313");
+        //new putDataTask().execute("http://192.168.8.103:1000/api/status/5abfc61275fd281c10c6a313");
+
+        // DELETE request
+        new deleteDataTask().execute("http://192.168.8.103:1000/api/status/5abfe63cd11ac32c7817a3ca");
     }
 
     @Override
@@ -312,6 +315,63 @@ public class MainActivity extends AppCompatActivity {
                 if(bufferedWriter != null){
                     bufferedWriter.close();
                 }
+            }
+        }
+    }
+
+    class deleteDataTask extends AsyncTask<String, Void, String>{
+
+        ProgressDialog progressDialog;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            progressDialog = new ProgressDialog(MainActivity.this);
+            progressDialog.setMessage("Deleting data..");
+            progressDialog.show();
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            try{
+                return deleteData(params[0]);
+            }catch(IOException ex){
+                return "Network error";
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+
+            mResult.setText(result);
+
+            if(progressDialog != null){
+                progressDialog.dismiss();
+            }
+        }
+
+        private String deleteData(String urlPath) throws IOException {
+
+            String result = null;
+
+            //Initialize and config request
+            URL url = new URL(urlPath);
+            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection.setReadTimeout(10000); // in milliseconds
+            urlConnection.setConnectTimeout(10000); // in milliseconds
+            urlConnection.setRequestMethod("DELETE");
+            urlConnection.setRequestProperty("Content-Type", "application/json"); // header
+            urlConnection.connect();
+
+
+            //Check if update is successful
+            if(urlConnection.getResponseCode() == 204){
+                return "Deleted successfully";
+            }
+            else{
+                return "Deleting failed";
             }
         }
     }
