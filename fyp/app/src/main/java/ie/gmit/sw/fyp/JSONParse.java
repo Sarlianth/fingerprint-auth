@@ -5,7 +5,7 @@ import org.json.JSONObject;
 
 public class JSONParse {
     public String mainparse(JSONObject json) {
-        String out="parse";
+        String out = "parse";
         try {
             out = json.getString("Value");
         } catch (JSONException e) {
