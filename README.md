@@ -1,6 +1,11 @@
-# Final year post-graduate project
- - Group No. 13 
- - Members; Adrian Sypos, Adrian Golias, Robert Kiliszewski
+# Attendance system
+
+# *Applied Project & Minor Dissertation Project 2017/18 - Year 4*
+
+**Name:** Adrian Sypos, Adrian Golias, Robert Kiliszewski </br>
+**Course:** Software Development </br>
+**Module:** Applied Project & Minor Dissertation </br>
+**Supervisor:** Kevin O'Brien </br>
 
 ## Idea
 “Student Attendance/Identificator with Fingerprint Reader”. 
