@@ -102,12 +102,12 @@
 	                <li class="topmenu"><a href="Add_class.aspx" style="height:13px; line-height:13px;">Add Class</a></li>
 	                <li class="topmenu"><a href="Add_Student.aspx" style="height:13px; line-height:13px;">Add Student</a></li>
 	                <li class="topmenu"><a href="#" style="height:15px; line-height:15px;"><span>View / Edit Details</span></a>
-                <ul>
-                    <li class="subfirst"><a href="View_Edit_Class.aspx">Class Details</a></li>
-	                <li class="subfirst"><a href="View_Edit_Student.aspx">Student Details</a></li>
-                    <li class="subfirst"><a href="View_Edit_Teacher_Details.aspx">Teacher Details</a></li></ul></li>
-                    <li class="topmenu"><a href="#" style="height:15px; line-height:15px;"><span>Reports</span></a>
-                <ul>
+                        <ul>
+                            <li class="subfirst"><a href="View_Edit_Class.aspx">Class Details</a></li>
+	                        <li class="subfirst"><a href="View_Edit_Student.aspx">Student Details</a></li>
+                            <li class="subfirst"><a href="View_Edit_Teacher_Details.aspx">Teacher Details</a></li></ul></li>
+                            <li class="topmenu"><a href="#" style="height:15px; line-height:15px;"><span>Reports</span></a>
+                        <ul>
 	                <li class="subfirst"><a href="View_Attendance_Report.aspx">View Attendance Report</a></li>
                     <li class="subfirst"><a href="View_Individual_Report.aspx">View Student Report</a></li></ul></li>
                     <li class="topmenu"><a href="View_Feedback.aspx" style="height:13px; line-height:13px;">View Feedback</a></li>
