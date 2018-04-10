@@ -15,22 +15,23 @@ The mobile application would require connecting to the database using either Gen
 
 Lecturers will login to the phone application and get connected to the server. After login, they will take attendance using mobile phone.
 
+## Technologies
 
-## Technology
+### [Android Studio (Java)](https://developer.android.com/studio/index.html)
+We have decided to use android studio to develop our app in Java. Andorid studio is the official integrated development envieroment for googles android operating system. Android application was designed for teachers use only.
 
-### [Android Studio(Java)](https://developer.android.com/studio/index.html)
-We have decided to use android studio to develop our app in Java. Andorid studio is the official integrated development envieroment for googles android operating system.
+### [MsSQL - Microsoft SQL]()
+Backend database
 
+### [ASP.NET](https://www.asp.net/)
+We decided to use ASP.NET to build our frontend web framework which allowed us to create modern application using .NET and ASP.NET services based on HTML, CSS that provide simple, fast and scalable solution. Web application was developed for admin and parent/student use.
 
-### [Couch DB](http://couchdb.apache.org/)
-CouchDB is an open source database made by apache. CouchDB is our online database where all our users and data is synched together. If the user is not connected to the internet then they can still use the app and they will be using PouchDB instead.
+### [WEB.API](https://www.asp.net/web-api)
+Middleware RESTful API that allowed us to interconnect pieces of our application together. Provided seemless connections between database and web/android applications anywhere.
 
-### [Pouch DB](https://pouchdb.com/)
-PouchDB is escpecially developed for Couch DB in order to be used offline and be synchronized with an online database which is what we are going to use pouchDB for so if the user does not have an internet connection can still use the application and when there is a connection then they can synch data with the online database.
+## Functionality
 
-### [Neo4j](https://neo4j.com/)
-We want to use Neo4j for statistics, since Neo4j is a graphical database we want to display statistics and data for users if they request it.
-
+to be continued...
 
 
 
