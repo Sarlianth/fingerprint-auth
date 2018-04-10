@@ -1,9 +1,14 @@
 package ie.gmit.sw.fyp;
 
+import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 public class Take_Attendance extends AppCompatActivity {
 
-
-
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.take_attendance);
+        getSupportActionBar().setTitle("Attendence Sheet");
+    }
 }

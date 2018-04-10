@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-public class RestAPI extends AppCompatActivity {
+public class RestAPI {
 
     private final String urlString = "http://attendance.hostoise.com/Handler1.ashx";
 
