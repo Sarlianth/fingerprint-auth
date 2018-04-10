@@ -13,12 +13,10 @@
         </tr>
         <tr>
             <td align="right">
-                <!--<asp:ImageButton ID="ImageButton1" runat="server" PostBackUrl="~/Login.aspx" ImageUrl="~/Images/admin.jpg" />-->
                 <asp:Button ID="Button" runat="server" Text="Admin" PostBackUrl="~/Login.aspx" Height="40px" CssClass="button" Width="40%" />
             </td>
             
             <td align="left">
-                <!--<asp:ImageButton ID="ImageButton2" runat="server" PostBackUrl="~/Login_parent.aspx" ImageUrl="~/Images/parent.jpg" />-->
                 <asp:Button ID="Button1" runat="server" Text="Parent" PostBackUrl="~/Login_parent.aspx" Height="40px" CssClass="button" Width="40%" />
             </td>
         </tr>
