@@ -1,15 +1,14 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Home.aspx.cs" Inherits="Home" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Home.aspx.cs" Inherits="Home" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-        </div>
-    </form>
-</body>
-</html>
+<asp:Content ID="Body" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div>
+        <br />
+        <br />
+            <asp:Label ID="Label1" CssClass="header" runat="server" Text="Home"></asp:Label>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </div>
+</asp:Content>
