@@ -101,6 +101,56 @@ public class RestAPI extends AppCompatActivity {
         }
         return finalValue;
     }
+
+    // login
+    public JSONObject login(String tname,String pass) throws Exception {
+        JSONObject result = null;
+        JSONObject o = new JSONObject();
+        JSONObject p = new JSONObject();
+        o.put("interface","RestAPI");
+        o.put("method", "login");
+        p.put("tname",mapObject(tname));
+        p.put("pass",mapObject(pass));
+        o.put("parameters", p);
+        String s = o.toString();
+        String r = load(s);
+        result = new JSONObject(r);
+        return result;
+    }
+
+    // get students
+    public JSONObject getstudents(String cname,String date) throws Exception {
+        JSONObject result = null;
+        JSONObject o = new JSONObject();
+        JSONObject p = new JSONObject();
+        o.put("interface","RestAPI");
+        o.put("method", "getstudents");
+        p.put("cname",mapObject(cname));
+        p.put("date",mapObject(date));
+        o.put("parameters", p);
+        String s = o.toString();
+        String r = load(s);
+        result = new JSONObject(r);
+        return result;
+    }
+
+    // attendance
+    public JSONObject attendence(String cname,String sid,String date,String status) throws Exception {
+        JSONObject result = null;
+        JSONObject o = new JSONObject();
+        JSONObject p = new JSONObject();
+        o.put("interface","RestAPI");
+        o.put("method", "attendence");
+        p.put("cname",mapObject(cname));
+        p.put("sid",mapObject(sid));
+        p.put("date",mapObject(date));
+        p.put("status",mapObject(status));
+        o.put("parameters", p);
+        String s = o.toString();
+        String r = load(s);
+        result = new JSONObject(r);
+        return result;
+    }
 }
 
 
