@@ -1,14 +1,19 @@
-# Final year post-graduate project
- - Group No. 13 
- - Members; Adrian Sypos, Adrian Golias, Robert Kiliszewski
+# Attendance system
 
-## Idea
-“Student Attendance/Identificator with Fingerprint Reader”. 
-Our idea is to use a biometric concept to facilitate the attendance system using the most reliable way of uniquely identifying students through fingerprint readings. Such type of application would be extremely useful in colleges or other organizations requiring daily attendance. Through this application we could keep a systematic track of users (student’s) attendance. 
+# *Applied Project & Minor Dissertation Project 2017/18 - Year 4*
 
-* Every student could login to the system through fingerprint detection
-* Fingerprint comparison for authentication
-* Generating a brief report of attendance from the database according to specifications as required.
+**Name:** Adrian Sypos, Adrian Golias, Robert Kiliszewski </br>
+**Course:** Software Development </br>
+**Module:** Applied Project & Minor Dissertation </br>
+**Supervisor:** Kevin O'Brien </br>
+
+## Introduction
+
+We have seen over the years that the process of manual attendance has been carried out across almost all educational institutions. The process is not only time consuming but also sometimes inefficient resulting in the false marking of attendance. Today, we need not maintain pen and paper based attendance registers. Following this thought, we have proposed an attendance monitoring system based on the concept of web services which is implemented as an Android mobile application that communicates with the database residing on a remote server. 
+
+The mobile application would require connecting to the database using either General Packet Radio Service(GPRS) or Wi-Fi technology. Our project is an efficient and user friendly Android mobile application for an Attendance Monitoring. The application will be installed on the user’s (in this case teacher’s) smart phone. It intends to provide an interface to the teacher who will require minimal details to input for marking of attendance of a particular class of students. Apart from that, the application would support strong user authentication and quick transmission of data via the web service. 
+
+Lecturers will login to the phone application and get connected to the server. After login, they will take attendance using mobile phone.
 
 
 ## Technology
