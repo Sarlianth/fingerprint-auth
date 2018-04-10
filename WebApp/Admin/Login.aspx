@@ -9,7 +9,7 @@
             </td></tr>
             <tr>
                 <td colspan="2" align="center">
-                    <asp:Label ID="Label1" CssClass="header" runat="server" Text="Admin Login" Font-Size="28px" />
+                    <asp:Label ID="Label1" CssClass="header" runat="server" Text="Admin login" Font-Size="28px" />
                 </td>
             </tr>
 
