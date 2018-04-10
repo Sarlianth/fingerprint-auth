@@ -30,6 +30,12 @@ We decided to use ASP.NET to build our frontend web framework which allowed us t
 Middleware RESTful API that allowed us to interconnect pieces of our application together. Provided seemless connections between database and web/android applications anywhere.
 
 ## Functionality
+This application is designed for implementation in the education system such as College/School. 
+
+The application provides paperless solution for attendance taking and 
+providing real-time statistics which is ready to be implemented. 
+
+Institute has administrator that handles registrations of authorities and lectures/classes within the system, meaning administrator has to register individual teachers and students within the system and assigns them to classes. Credentials are provided for individual teachers (& and parents when registering student) upon registration that allow for further authentication into the system. 
 
 to be continued...
 
