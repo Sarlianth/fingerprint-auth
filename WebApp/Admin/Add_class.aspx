@@ -67,7 +67,10 @@
                 </td>
                 
                 <td class="tx">
-                    
+                    <asp:DropDownList ID="DropDownList2" runat="server" Width="40%"
+                        AutoPostBack="True" onselectedindexchanged="DropDownList2_SelectedIndexChanged">
+                        <asp:ListItem>--Select--</asp:ListItem>
+                    </asp:DropDownList>
                 </td>
             </tr>
         </table>
@@ -102,7 +105,7 @@
             
             <tr>
                 <td colspan="2" align="center" class="intabular">
-                    <asp:Button ID="Button1" runat="server" Text="Submit" 
+                    <asp:Button ID="Button1" runat="server" Text="Submit" onclick="Button1_Click"
                         Height="40px" CssClass="button" Width="20%" />
                 </td>
             </tr>
