@@ -21,7 +21,33 @@
                 </td>
             </tr>
 
-            
+            <tr>
+                <td colspan="2" align="center">
+                    <asp:GridView ID="GridView1" runat="server" Width="80%" AutoGenerateColumns="False" OnRowCommand="GridView1_RowCommand" CellPadding="4" ForeColor="#333333" GridLines="None" >
+                        <AlternatingRowStyle BackColor="White" />
+                            <Columns>
+                            <asp:BoundField HeaderText="Teacher Name" DataField="name"/>
+                            <asp:BoundField HeaderText="Class" DataField="high_qualification"/>
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <asp:LinkButton ID="yes" runat ="server" CommandArgument='<%#Eval("tid")%>' Text ="View" CommandName ="yes" ></asp:LinkButton>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+
+                        <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                        <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+                        <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+                        <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+                        <SortedAscendingCellStyle BackColor="#FDF5AC" />
+                        <SortedAscendingHeaderStyle BackColor="#4D0000" />
+                        <SortedDescendingCellStyle BackColor="#FCF6C0" />
+                        <SortedDescendingHeaderStyle BackColor="#820000" />
+
+                    </asp:GridView>
+                </td>
+            </tr>
 
             <tr>
                 <td colspan="2">
