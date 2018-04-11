@@ -47,7 +47,7 @@ The system comprises of 3 major modules with their sub-modules as follows:
 2. Open the Android project using Android Studio IDE
 3. Setup an emulator or any hardware device that is running the supported android version
 4. Run/Deploy to the target device of your choice
- - Optionally you can download the .apk file and install it on any android phone that runs supported android version
+ - Optionally you can download the .apk file (from this repository) and install it on any android phone that runs supported android version
 
 ## Functionality
 
