@@ -30,18 +30,11 @@ public partial class Add_class : System.Web.UI.Page
             {
                 for (int i = 0; i < data.Tables[0].Rows.Count; i++)
                 {
-                    DropDownList2.Items.Add(data.Tables[0].Rows[i][0].ToString());
+                    //DropDownList2.Items.Add(data.Tables[0].Rows[i][0].ToString());
                 }
             }
         }
     }
 
-    protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        Random random = new Random();
-        int iterations = 0;
-        iterations = random.Next(1000, 10000);
-        TextBox2.Text = Convert.ToString(iterations);
-        Panel1.Visible = true;
-    }
+    
 }

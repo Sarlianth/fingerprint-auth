@@ -67,10 +67,7 @@
                 </td>
                 
                 <td class="tx">
-                    <asp:DropDownList ID="DropDownList2" runat="server" Width="40%"
-                        AutoPostBack="True" onselectedindexchanged="DropDownList2_SelectedIndexChanged">
-                        <asp:ListItem>--Select--</asp:ListItem>
-                    </asp:DropDownList>
+                    
                 </td>
             </tr>
         </table>
