@@ -73,15 +73,15 @@ public partial class Add_class : System.Web.UI.Page
 
             SqlCommand command;
             connection.Open();
-            string addIntoClass = "insert into add_class values('" + h1.Value + "','" + TextBox1.Text + "','" + DropDownList1.SelectedItem.Text + "','" + DropDownList2.SelectedItem.Text + "','" + TextBox2.Text + "')";
-            command = new SqlCommand(addIntoClass, connection);
+            string query2 = "insert into add_class values('" + h1.Value + "','" + TextBox1.Text + "','" + DropDownList1.SelectedItem.Text + "','" + DropDownList2.SelectedItem.Text + "','" + TextBox2.Text + "')";
+            command = new SqlCommand(query2, connection);
             command.ExecuteNonQuery();
             connection.Close();
 
             SqlDataAdapter adapter1;
             DataSet ds1 = new DataSet();
-            string query2 = "select email from teacher_details where name='" + DropDownList2.SelectedItem.Text + "'";
-            adapter1 = new SqlDataAdapter(query2, connection);
+            string query3 = "select email from teacher_details where name='" + DropDownList2.SelectedItem.Text + "'";
+            adapter1 = new SqlDataAdapter(query3, connection);
             adapter1.Fill(ds1);
             string email = "";
 
