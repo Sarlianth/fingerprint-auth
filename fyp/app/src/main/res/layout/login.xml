@@ -29,7 +29,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPersonName"
-                        android:hint="Teacher's Name"
+                        android:hint="Teacher name"
                         android:ems="10"
                         android:id="@+id/user" />
 
@@ -62,8 +62,8 @@
                 android:layout_height="match_parent">
 
                 <Button
-                    android:textColor="@color/gray"
-                    android:background="@color/orange"
+                    android:textColor="@color/white"
+                    android:background="@color/darkgray"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Sign In"

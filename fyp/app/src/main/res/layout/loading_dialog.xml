@@ -33,7 +33,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Loading.."
+                    android:text="Loading"
                     />
 
                 <TextView
@@ -42,7 +42,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Please Wait!"
+                    android:text="Please wait.."
                     />
             </LinearLayout>
         </TableRow>
