@@ -27,7 +27,7 @@
                 </td>
 
                 <td class="tx" width="40%">
-                    <asp:TextBox ID="TextBox1" required runat="server" Width="40%"></asp:TextBox>
+                    <asp:TextBox ID="TextBox1" required="true" runat="server" Width="40%"></asp:TextBox>
                 </td>
             </tr>
 
@@ -43,7 +43,7 @@
                 </td>
                     
                 <td class="tx">
-                    <asp:TextBox ID="TextBox2" required runat="server" Width="40%"></asp:TextBox>
+                    <asp:TextBox ID="TextBox2" required="true" runat="server" Width="40%"></asp:TextBox>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
                         ControlToValidate="TextBox2" ErrorMessage="Invalid Phone Number" 
                         Font-Size="Small" ForeColor="Red" ValidationExpression="\d+">
@@ -63,7 +63,7 @@
                 </td>
                     
                 <td class="tx">
-                    <asp:TextBox ID="TextBox3" required runat="server" Width="40%"></asp:TextBox>
+                    <asp:TextBox ID="TextBox3" required="true" runat="server" Width="40%"></asp:TextBox>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" 
                         ControlToValidate="TextBox3" ErrorMessage=" " Font-Size="Small" ForeColor="Red" 
                         ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*">Invalid Email ID

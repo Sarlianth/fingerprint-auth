@@ -15,7 +15,7 @@ public partial class AddTeacher : System.Web.UI.Page
     {
         if (Session["add"] == "add")
         {
-            Page.ClientScript.RegisterStartupScript(GetType(), "msgtype()", "alert('Teacher Details Added !!!')", true);
+            Page.ClientScript.RegisterStartupScript(GetType(), "msgtype()", "alert('Added new teacher')", true);
             Session["add"] = "";
         }
     }
