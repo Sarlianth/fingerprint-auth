@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Attendance System</string>
+    <string name="submit">Submit</string>
+    <string name="clear">Clear</string>
+    <string name="login">Login</string>
+    <string name="teacher_name">Teacher name</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sick">Sick</string>
+    <string name="late">Late</string>
+    <string name="absent">Absent</string>
+    <string name="present">Present</string>
 </resources>
