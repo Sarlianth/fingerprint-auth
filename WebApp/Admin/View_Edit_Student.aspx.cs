@@ -23,8 +23,8 @@ public partial class View_Edit_Student : System.Web.UI.Page
             Panel1.Visible = false;
             SqlDataAdapter adapter;
             DataSet dataSet = new DataSet();
-            string ml = "select sid,name,class from student_details";
-            adapter = new SqlDataAdapter(ml, con);
+            string query = "select sid,name,class from student_details";
+            adapter = new SqlDataAdapter(query, con);
             adapter.Fill(dataSet);
             if (dataSet.Tables[0].Rows.Count > 0)
             {
@@ -33,8 +33,8 @@ public partial class View_Edit_Student : System.Web.UI.Page
             }
             SqlDataAdapter adapter1;
             DataSet dataSet1 = new DataSet();
-            string rf = "select course_name from add_class";
-            adapter1 = new SqlDataAdapter(rf, con);
+            string query1 = "select course_name from add_class";
+            adapter1 = new SqlDataAdapter(query1, con);
 
             adapter1.Fill(dataSet1);
             if (dataSet1.Tables[0].Rows.Count > 0)
@@ -54,23 +54,23 @@ public partial class View_Edit_Student : System.Web.UI.Page
         if (e.CommandName == "yes")
         {
             string i = Convert.ToString(e.CommandArgument.ToString());
-            SqlDataAdapter da;
-            DataSet ds = new DataSet();
-            string kl = "select class,phone,email,pemail from student_details where sid='" + i + "'";
-            da = new SqlDataAdapter(kl, con);
-            da.Fill(ds);
-            if (ds.Tables[0].Rows.Count > 0)
+            SqlDataAdapter adapter;
+            DataSet dataSet = new DataSet();
+            string query = "select class,phone,email,pemail from student_details where sid='" + i + "'";
+            adapter = new SqlDataAdapter(query, con);
+            adapter.Fill(dataSet);
+            if (dataSet.Tables[0].Rows.Count > 0)
             {
-                TextBox1.Text = ds.Tables[0].Rows[0][1].ToString();
+                TextBox1.Text = dataSet.Tables[0].Rows[0][1].ToString();
                 foreach (ListItem word in DropDownList1.Items)
                 {
-                    if (word.Value == ds.Tables[0].Rows[0][0].ToString())
+                    if (word.Value == dataSet.Tables[0].Rows[0][0].ToString())
                     {
                         DropDownList1.SelectedValue = word.Value;
                     }
                 }
-                TextBox2.Text = ds.Tables[0].Rows[0][2].ToString();
-                TextBox3.Text = ds.Tables[0].Rows[0][3].ToString();
+                TextBox2.Text = dataSet.Tables[0].Rows[0][2].ToString();
+                TextBox3.Text = dataSet.Tables[0].Rows[0][3].ToString();
                 h1.Value = i;
                 Panel1.Visible = true;
 
