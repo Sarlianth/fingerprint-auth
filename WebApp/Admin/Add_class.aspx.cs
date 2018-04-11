@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Mail;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -77,7 +78,32 @@ public partial class Add_class : System.Web.UI.Page
             command.ExecuteNonQuery();
             connection.Close();
 
-            
+            SqlDataAdapter adapter1;
+            DataSet ds1 = new DataSet();
+            string query2 = "select email from teacher_details where name='" + DropDownList2.SelectedItem.Text + "'";
+            adapter1 = new SqlDataAdapter(query2, connection);
+            adapter1.Fill(ds1);
+            string email = "";
+
+            if (ds1.Tables[0].Rows.Count > 0)
+            {
+                email = ds1.Tables[0].Rows[0][0].ToString();
+            }
+
+            MailMessage mail = new MailMessage();
+            SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+            mail.From = new MailAddress("attendancegroup13@gmail.com");
+            mail.To.Add(email);
+            mail.Subject = "Attendance system registration";
+            mail.Body = "Dear " + DropDownList2.SelectedItem.Text + "," +
+                "\r\n\r\n You were successfuly registered. Please use your teacher credentials provided below to authenticate into the system.\r\n\r\n E-mail : " + email + "\r\n\r\n Password : " + TextBox2.Text + " \r\n\r\n\r\n\r\n";
+
+            SmtpServer.Port = 587;
+            SmtpServer.Credentials = new System.Net.NetworkCredential("attendancegroup13@gmail.com", "attendance");
+            SmtpServer.EnableSsl = true;
+            SmtpServer.Send(mail);
+            Session["add"] = "add";
+            Response.Redirect("Add_class.aspx");
         }
     }
 }
