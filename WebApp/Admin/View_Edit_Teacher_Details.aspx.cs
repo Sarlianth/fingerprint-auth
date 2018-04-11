@@ -15,7 +15,7 @@ public partial class View_Edit_Teacher_Details : System.Web.UI.Page
     {
         if (Session["update"] == "update")
         {
-            Page.ClientScript.RegisterStartupScript(GetType(), "msgtype()", "alert('Student Details Updated !!!')", true);
+            Page.ClientScript.RegisterStartupScript(GetType(), "msgtype()", "alert('Teacher details successfully updated')", true);
             Session["update"] = "";
         }
         if (!IsPostBack)
@@ -57,5 +57,20 @@ public partial class View_Edit_Teacher_Details : System.Web.UI.Page
 
             }
         }
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+
+        SqlCommand cmd;
+        con.Open();
+        string op = "update teacher_details set high_qualification='" + TextBox3.Text + "',mob='" + TextBox1.Text + "',email='" + TextBox2.Text + "' where tid='" + h1.Value + "'";
+        cmd = new SqlCommand(op, con);
+        cmd.ExecuteNonQuery();
+        con.Close();
+        Session["update"] = "update";
+        Response.Redirect("View_Edit_Teacher_Details.aspx");
+
+
     }
 }

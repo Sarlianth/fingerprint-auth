@@ -11,7 +11,7 @@
 
             <tr>
                 <td colspan="20" class="hea">
-                    <asp:Label ID="Label1" runat="server" Text="View / Edit Teacher Details" />    
+                    <asp:Label ID="Label1" runat="server" Text="Edit teacher details" />    
                 </td>
             </tr>
 
@@ -87,7 +87,7 @@
                                 </td>
 
                                 <td align="left" class="tx">
-                                    <asp:TextBox ID="TextBox1" runat="server" required Width="40%"></asp:TextBox>
+                                    <asp:TextBox ID="TextBox1" runat="server" required="true" Width="40%"></asp:TextBox>
                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TextBox1" ErrorMessage="Invalid Phone Number" Font-Size="Small" ForeColor="Red" ValidationExpression="\d+"></asp:RegularExpressionValidator>
                                 </td>
                             </tr> 
@@ -124,7 +124,7 @@
 
                             <tr>
                                 <td colspan="2" align="center">
-                                    <asp:Button ID="Button1" runat="server" Text="Update" CssClass="intabular" Height="40px" Width="20%" />
+                                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Update" CssClass="button" Height="40px" Width="20%" />
                                 </td>
                             </tr>
                             <tr>
