@@ -16,7 +16,7 @@ public partial class Add_Student : System.Web.UI.Page
     {
         if (Session["add"] == "add")
         {
-            Page.ClientScript.RegisterStartupScript(GetType(), "msgtype()", "alert('Added new student and parent received authentication credentials by email", true);
+            Page.ClientScript.RegisterStartupScript(GetType(), "msgtype()", "alert('Added new student and parent received authentication credentials by email')", true);
             Session["add"] = "";
         }
 
