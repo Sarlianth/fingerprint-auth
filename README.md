@@ -2,7 +2,7 @@
 
 # *Applied Project & Minor Dissertation Project 2017/18 - Year 4*
 
-**Name:** Adrian Sypos, Adrian Golias, Robert Kiliszewski </br>
+**Name:** [Adrian Sypos](https://github.com/sarlianth), [Adrian Golias](https://github.com/snow246), [Robert Kiliszewski](https://github.com/robertkiliszewski) </br>
 **Course:** Software Development </br>
 **Module:** Applied Project & Minor Dissertation </br>
 **Supervisor:** Kevin O'Brien </br>
