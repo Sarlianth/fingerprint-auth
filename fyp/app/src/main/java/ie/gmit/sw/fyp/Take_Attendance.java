@@ -56,7 +56,7 @@ public class Take_Attendance extends AppCompatActivity {
         Intent i = getIntent();
         std = i.getStringExtra("class");
 
-        String s = "<b>Class : " + "</b>" + std;
+        String s = "<b>Class: " + "</b>" + std;
         classDiv.setText(Html.fromHtml(s));
         String s1 = "<b>Date : </b>" + date;
         dateView.setText(Html.fromHtml(s1));
@@ -115,10 +115,10 @@ public class Take_Attendance extends AppCompatActivity {
                     d.show();
                 } else {
                     list.setSelection(Integer.parseInt(check));
-                    Snackbar snackbar = Snackbar.make(layout, "Fill for all the students", Snackbar.LENGTH_SHORT);
+                    Snackbar snackbar = Snackbar.make(layout, "Check attendance for all students", Snackbar.LENGTH_SHORT);
                     View vs = snackbar.getView();
                     TextView txt = (TextView) vs.findViewById(android.support.design.R.id.snackbar_text);
-                    txt.setTextColor(Color.parseColor("#d66e0a"));
+                    txt.setTextColor(Color.parseColor("#ff0000"));
                     snackbar.show();
                 }
             }
@@ -173,13 +173,13 @@ public class Take_Attendance extends AppCompatActivity {
                 Snackbar snackbar = Snackbar.make(layout, "No students added", Snackbar.LENGTH_SHORT);
                 View vs = snackbar.getView();
                 TextView txt = (TextView) vs.findViewById(android.support.design.R.id.snackbar_text);
-                txt.setTextColor(Color.parseColor("#FFFFFF"));
+                txt.setTextColor(Color.parseColor("#ffffff"));
                 snackbar.show();
             } else if (s.compareTo("already") == 0) {
                 Snackbar snackbar = Snackbar.make(layout, "Attendance already taken", Snackbar.LENGTH_LONG);
                 View vs = snackbar.getView();
                 TextView txt = (TextView) vs.findViewById(android.support.design.R.id.snackbar_text);
-                txt.setTextColor(Color.GREEN);
+                txt.setTextColor(Color.parseColor("#ff0000"));
                 snackbar.show();
             } else {
                 if (s.contains("*")) {
@@ -231,7 +231,7 @@ public class Take_Attendance extends AppCompatActivity {
             super.onPostExecute(s);
             if (s.compareTo("true") == 0) {
                 gd.cancel();
-                Snackbar snack = Snackbar.make(list, "Attendance Taken..Thank You!", Snackbar.LENGTH_INDEFINITE);
+                Snackbar snack = Snackbar.make(list, "Attendance submitted", Snackbar.LENGTH_INDEFINITE);
                 View vs = snack.getView();
                 TextView txt = (TextView) vs.findViewById(android.support.design.R.id.snackbar_text);
                 txt.setTextColor(Color.GREEN);
