@@ -1,15 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ContactUs.aspx.cs" Inherits="ContactUs" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ContactUs.aspx.cs" Inherits="ContactUs" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-        </div>
-    </form>
-</body>
-</html>
+<asp:Content ID="Body" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
+    <div>
+        <br />
+        <br />
+        <asp:Label ID="Label1" CssClass="header" runat="server" Text="Contact Us"></asp:Label>
+        <br />
+        <br />
+        <br />
+    </div>
+</asp:Content>
