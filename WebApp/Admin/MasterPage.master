@@ -101,24 +101,24 @@
                     <li class="topfirst"><a href="AddTeacher.aspx" style="height:13px; line-height:13px;">Add Teacher</a></li>
 	                <li class="topmenu"><a href="Add_class.aspx" style="height:13px; line-height:13px;">Add Class</a></li>
 	                <li class="topmenu"><a href="Add_Student.aspx" style="height:13px; line-height:13px;">Add Student</a></li>
-	                <li class="topmenu"><a href="#" style="height:15px; line-height:15px;"><span>View / Edit Details</span></a>
+	                <li class="topmenu"><a href="#" style="height:15px; line-height:15px;"><span>Manage</span></a>
                         <ul>
-                            <li class="subfirst"><a href="View_Edit_Class.aspx">Class Details</a></li>
-	                        <li class="subfirst"><a href="View_Edit_Student.aspx">Student Details</a></li>
-                            <li class="subfirst"><a href="View_Edit_Teacher_Details.aspx">Teacher Details</a></li></ul></li>
+                            <li class="subfirst"><a href="View_Edit_Class.aspx">Manage classes</a></li>
+	                        <li class="subfirst"><a href="View_Edit_Student.aspx">Manage students</a></li>
+                            <li class="subfirst"><a href="View_Edit_Teacher_Details.aspx">Manage teachers</a></li></ul></li>
                             <li class="topmenu"><a href="#" style="height:15px; line-height:15px;"><span>Reports</span></a>
                         <ul>
-	                <li class="subfirst"><a href="View_Attendance_Report.aspx">View Attendance Report</a></li>
-                    <li class="subfirst"><a href="View_Individual_Report.aspx">View Student Report</a></li></ul></li>
-                    <li class="topmenu"><a href="View_Feedback.aspx" style="height:13px; line-height:13px;">View Feedback</a></li>
+	                <li class="subfirst"><a href="View_Attendance_Report.aspx">View attendance report</a></li>
+                    <li class="subfirst"><a href="View_Individual_Report.aspx">View student report</a></li></ul></li>
+                    <li class="topmenu"><a href="View_Feedback.aspx" style="height:13px; line-height:13px;">View feedback</a></li>
 	                <li class="toplast"><a href="Logout.aspx" style="height:13px; line-height:13px;">Logout</a></li>
                 </ul>
             </asp:Panel>
 
              <asp:Panel ID="Panel3" runat="server">
                 <ul id="css3menu1" class="topmenu">
-	                <li class="topfirst"><a href="Add_Feedback.aspx" style="height:13px; line-height:13px;">Add Feedback</a></li>
-                    <li class="topmenu"><a href="Parent_Individual_Report.aspx" style="height:13px; line-height:13px;">Student Report</a></li>
+	                <li class="topfirst"><a href="Add_Feedback.aspx" style="height:13px; line-height:13px;">Add feedback</a></li>
+                    <li class="topmenu"><a href="Parent_Individual_Report.aspx" style="height:13px; line-height:13px;">Student report</a></li>
 	                <li class="toplast"><a href="Logout.aspx" style="height:13px; line-height:13px;">Logout</a></li>
                 </ul>
             </asp:Panel>
