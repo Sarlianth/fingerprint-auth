@@ -45,11 +45,12 @@ The system comprises of 3 major modules with their sub-modules as follows:
 3. Run the project in Visual Studio 2017
 
 ### Android
+ - **Download [attendance.apk](https://github.com/Sarlianth/fingerprint-auth/raw/master/attendance.apk) file and install it on your android phone**
+ - Optionally, if you wish to build the app yourself and deploy it on an emulator, please follow the steps below
 1. Download the repository
 2. Open the Android project using Android Studio IDE
 3. Setup an emulator or any hardware device that is running the supported android version
 4. Run/Deploy to the target device of your choice
- - Optionally you can download the .apk file (from this repository) and install it on any android phone that runs supported android version
 
 ## Functionality
 
