@@ -11,7 +11,7 @@
 
             <tr>
                 <td colspan="2" class="hea">
-                    <asp:Label ID="Label1" runat="server" Text="Teacher Details And Assign Class"></asp:Label>
+                    <asp:Label ID="Label1" runat="server" Text="Teacher details"></asp:Label>
                 </td>
             </tr>
 
@@ -39,7 +39,7 @@
             
             <tr>
                 <td class="lab">
-                    <asp:Label ID="Label2" runat="server" Text="Mobile Number"></asp:Label>
+                    <asp:Label ID="Label2" runat="server" Text="Mobile number"></asp:Label>
                 </td>
                     
                 <td class="tx">
@@ -59,7 +59,7 @@
 
             <tr>
                 <td class="lab">
-                    <asp:Label ID="Label5" runat="server" Text="E-Mail ID"></asp:Label>
+                    <asp:Label ID="Label5" runat="server" Text="Teacher email"></asp:Label>
                 </td>
                     
                 <td class="tx">
@@ -79,7 +79,7 @@
 
             <tr>
                 <td class="lab">
-                    <asp:Label ID="Label4" runat="server" Text="Highest Qualification"></asp:Label>
+                    <asp:Label ID="Label4" runat="server" Text="Highest qualification"></asp:Label>
                 </td>
                     
                 <td class="tx">

@@ -15,7 +15,7 @@ public partial class AddTeacher : System.Web.UI.Page
     {
         if (Session["add"] == "add")
         {
-            Page.ClientScript.RegisterStartupScript(GetType(), "msgtype()", "alert('Added new teacher')", true);
+            Page.ClientScript.RegisterStartupScript(GetType(), "msgtype()", "alert('Teacher successfully added')", true);
             Session["add"] = "";
         }
     }
@@ -24,7 +24,7 @@ public partial class AddTeacher : System.Web.UI.Page
     {
         SqlDataAdapter adapter;
         DataSet data = new DataSet();
-        string query = "select top 1 tid from teacher_details order by  tid desc";
+        string query = "select top 1 tid from teacher_details order by tid desc";
         adapter = new SqlDataAdapter(query, connection);
         adapter.Fill(data);
         int count = 0;

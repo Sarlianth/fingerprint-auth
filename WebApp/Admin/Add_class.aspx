@@ -11,7 +11,7 @@
 
             <tr>
                 <td colspan="2" class="hea">
-                    <asp:Label ID="Label1" runat="server" Text="Add new class" Font-Bold="False"></asp:Label>
+                    <asp:Label ID="Label1" runat="server" Text="Class details" Font-Bold="False"></asp:Label>
                 </td>
             </tr>
 

@@ -16,7 +16,7 @@ public partial class Add_Student : System.Web.UI.Page
     {
         if (Session["add"] == "add")
         {
-            Page.ClientScript.RegisterStartupScript(GetType(), "msgtype()", "alert('Added new student and parent received authentication credentials by email')", true);
+            Page.ClientScript.RegisterStartupScript(GetType(), "msgtype()", "alert('Student successfully added. Parents login credentials sent to email')", true);
             Session["add"] = "";
         }
 
@@ -44,7 +44,7 @@ public partial class Add_Student : System.Web.UI.Page
     {
         if (DropDownList1.SelectedItem.Text == "--Select--")
         {
-            Page.ClientScript.RegisterStartupScript(GetType(), "msgtype()", "alert('Select class name')", true);
+            Page.ClientScript.RegisterStartupScript(GetType(), "msgtype()", "alert('Please select class')", true);
         }
         else
         {
@@ -89,7 +89,7 @@ public partial class Add_Student : System.Web.UI.Page
             SmtpServer.Credentials = new System.Net.NetworkCredential("attendancegroup13@gmail.com", "attendance");
             SmtpServer.EnableSsl = true;
             SmtpServer.Send(mail);
-            Page.ClientScript.RegisterStartupScript(GetType(), "msgtype()", "alert('Added new student and parent received authentication credentials by email.')" + h2.Value, true);
+            Page.ClientScript.RegisterStartupScript(GetType(), "msgtype()", "alert('Student successfully added. Parents login credentials sent to email')" + h2.Value, true);
             Session["add"] = "add";
             Response.Redirect("Add_Student.aspx");
         }

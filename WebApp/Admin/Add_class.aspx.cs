@@ -16,7 +16,7 @@ public partial class Add_class : System.Web.UI.Page
     {
         if (Session["add"] == "add")
         {
-            Page.ClientScript.RegisterStartupScript(GetType(), "msgtype", "alert('Added new class details')", true);
+            Page.ClientScript.RegisterStartupScript(GetType(), "msgtype", "alert('Class successfully added')", true);
             Session["add"] = "";
         }
         if (!IsPostBack)
@@ -50,7 +50,7 @@ public partial class Add_class : System.Web.UI.Page
     {
         if (DropDownList1.SelectedItem.Text == "--Select--")
         {
-            Page.ClientScript.RegisterStartupScript(GetType(), "msgtype", "alert('Select semester')", true);
+            Page.ClientScript.RegisterStartupScript(GetType(), "msgtype", "alert('Please select semester')", true);
         }
         else
         {
@@ -96,8 +96,8 @@ public partial class Add_class : System.Web.UI.Page
             mail.To.Add(email);
             mail.Subject = "Attendance system registration";
             mail.Body = "Dear " + DropDownList2.SelectedItem.Text + "," +
-                "\r\n\r\n You were successfuly registered. Please use your teacher credentials provided below to authenticate into the system.\r\n\r\n E-mail : " 
-                + email + "\r\n\r\n Password : " + TextBox2.Text + " \r\n\r\n\r\n\r\n";
+                "\r\n\r\n You were successfuly registered. Please use the following credentials to login.\r\n\r\n Username: " 
+                + DropDownList2.SelectedItem.Text + "\r\n\r\n Password: " + TextBox2.Text + " \r\n\r\n\r\n\r\n";
 
             SmtpServer.Port = 587;
             SmtpServer.Credentials = new System.Net.NetworkCredential("attendancegroup13@gmail.com", "attendance");

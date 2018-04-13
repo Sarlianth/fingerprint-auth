@@ -9,7 +9,7 @@
         </tr>
         <tr> 
             <td colspan="2" class="hea">
-                <asp:Label ID="Label1" runat="server" Text="Add Feedback"/>
+                <asp:Label ID="Label1" runat="server" Text="Add feedback"/>
             </td>
         </tr>
         <tr> 
