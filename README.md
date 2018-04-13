@@ -37,14 +37,14 @@ The system comprises of 3 major modules with their sub-modules as follows:
 
 ## How to Run
 
-### Web application
+### Web application - [Click to access](http://attendancegroup13.azurewebsites.net/)
  - **WebApp has been deployed to Azure and is accessible [here](http://attendancegroup13.azurewebsites.net/).**
  - However, if you wish to compile the project yourself, please follow the steps below
 1. Download the repository
 2. Open the solution in Visual Studio 2017
 3. Run the project in Visual Studio 2017
 
-### Android
+### Android - [Download App](https://github.com/Sarlianth/fingerprint-auth/raw/master/attendance.apk)
  - **Download [attendance.apk](https://github.com/Sarlianth/fingerprint-auth/raw/master/attendance.apk) file and install it on your android phone**
  - Optionally, if you wish to build the app yourself and deploy it on an emulator, please follow the steps below
 1. Download the repository
