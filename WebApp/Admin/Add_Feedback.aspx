@@ -32,7 +32,7 @@
         </tr>
         <tr> 
             <td colspan="2" align="center" class="intabular">
-                <asp:Button ID="Button1" onClick="Button1_Click" runat="server" Text="Submit" Height="40px" CssClass="intabular" Width="20%" />
+                <asp:Button ID="Button1" onClick="Button1_Click" runat="server" Text="Submit" Height="40px" CssClass="button" Width="20%" />
             </td>
         </tr>
         <tr> 

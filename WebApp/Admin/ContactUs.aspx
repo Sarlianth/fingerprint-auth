@@ -7,10 +7,11 @@
         <asp:Label ID="Label1" CssClass="header" runat="server" Text="Contact Us"></asp:Label>
         <br />
         <br />
-        <p>Send us your feedback at</p>
-        <p>Adrian Sypos - adrian00935@gmail.com</p>
-        <p>Robert Kiliszewski - robert.kiliszewski@hotmail.com</p>
-        <p>Adrian Golias - adriangoliasgti@gmail.com
+        <p style="text-align:center; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; color:black; font-size:x-large">
+            Send us your feedback at
+        <br /><br />Adrian Sypos - adrian00935@gmail.com
+        <br />Robert Kiliszewski - robert.kiliszewski@hotmail.com
+        <br />Adrian Golias - adriangoliasgti@gmail.com
         </p>
         <br />
         <br />
