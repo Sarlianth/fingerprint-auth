@@ -11,7 +11,7 @@
 
 ## Introduction
 
-We have seen over the years that the process of manual attendance has been carried out across almost all educational institutions. The process is not only time consuming but also sometimes inefficient resulting in the false marking of attendance. These days we do not need to use pen and paper to take attendace. Following this thought, we have proposed an attendance monitoring system based on the concept of web services which are implemented as an Android mobile application that communicates with the database residing on a remote server. 
+We have seen over the years that the process of manual attendance has been carried out across almost all educational institutions. The process is not only time consuming but also sometimes inefficient resulting in false attendance marking. These days we do not need to use pen and paper to take attendace. Following this thought, we have proposed an attendance monitoring system based on the concept of web services which are implemented as an Android application that communicates with the database residing on a remote server. 
 
 Our mobile application would require connecting to the database through restful api. Our project is an efficient and user friendly android application for attendance taking. The application will be installed on the users' smartphone - in this case teachers' smartphone. It provides very easy to understand user interface to take attendance of class listing names of all students that are registered for certain class. The application provides strong user authentication and efficient database access via the web api.
 
@@ -56,13 +56,13 @@ The system comprises of 3 major modules with their sub-modules as follows:
 
 ## Functionality
 
-This application is designed for implementation in the education system such as College/School, ir provides paperless solution for attendance taking. It also generates statistics based on attendance for individual class.
+This application is designed for implementation in the education system such as school or college, it provides paperless solution for attendance taking, as well as generating statistics based on attendance for individual classes.
 
-Institute has an admin that handles registrations of authorities and lectures/classes within the system, meaning administrator has to register individual teachers and students within the system and assigns them to classes. Credentials are provided for individual teachers upon registration that allow for further authentication into the system. When registering new student, parent information is also taken to create an account for parent.
+Institute has an admin that handles registrations of authorities and lectures/classes within the system, meaning administrator has to register individual teachers and students within the system and assign them to classes. Credentials are provided for individual teachers upon registration that allow for further authentication into the system. When registering new student, parent information is also taken to create an account for parent, so they can later monitor their children attendance and provide feedback.
 
 Teachers use the credentials to access the attendance system using android application and take attendance for individual class.
 
-Parents receive credentials to registered email (e-mail address & password) upon student registration (provided that their email address was registered into system). Parents can access the system using credentials provided in the e-mail. After authentication into the system parents can add feedback and check attendance of related student.
+Parents receive credentials to registered email upon student registration. They can access the system using credentials provided in the e-mail. After authentication into the system parents can add feedback and check attendance of related student.
 
 ## Database design
 
