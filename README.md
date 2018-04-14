@@ -63,3 +63,12 @@ Institute has an admin that handles registrations of authorities and lectures/cl
 Teachers use the credentials to access the attendance system using android application and take attendance for individual class.
 
 Parents receive credentials to registered email (e-mail address & password) upon student registration (provided that their email address was registered into system). Parents can access the system using credentials provided in the e-mail. After authentication into the system parents can add feedback and check attendance of related student.
+
+## Database design
+
+This project has been developed with the use of SQL database. Its design can be seen below
+![database](https://github.com/Sarlianth/fingerprint-auth/blob/master/database.jpg)
+
+## UML Diagram
+UML (Unified Modeling Language) is a way of visualizing a software solution using collection of diagrams. The UML diagram for this projects android application can be seen below
+![uml](https://github.com/Sarlianth/fingerprint-auth/blob/master/uml.jpg)
