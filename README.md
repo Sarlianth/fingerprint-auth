@@ -7,6 +7,8 @@
 **Module:** Applied Project & Minor Dissertation </br>
 **Supervisor:** Kevin O'Brien </br>
 
+![screencast](https://github.com/Sarlianth/fingerprint-auth/blob/master/Screencast.gif)
+
 ## Introduction
 
 We have seen over the years that the process of manual attendance has been carried out across almost all educational institutions. The process is not only time consuming but also sometimes inefficient resulting in the false marking of attendance. These days we do not need to use pen and paper to take attendace. Following this thought, we have proposed an attendance monitoring system based on the concept of web services which are implemented as an Android mobile application that communicates with the database residing on a remote server. 
