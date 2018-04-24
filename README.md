@@ -7,7 +7,7 @@
 **Module:** Applied Project & Minor Dissertation </br>
 **Supervisor:** Kevin O'Brien </br>
 
-<p align="center">Screencast of the application can be found here - [YouTube](https://youtu.be/YrmQMPoCGwI)</p>
+<p align="center">Screencast of the application can be found here - </p> ![YouTube](https://youtu.be/YrmQMPoCGwI)
 ![screencast](https://github.com/Sarlianth/fingerprint-auth/blob/master/Screencast.gif)
 
 ## Introduction
